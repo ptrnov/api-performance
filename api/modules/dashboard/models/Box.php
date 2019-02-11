@@ -58,12 +58,19 @@ class Box extends DynamicModel
 
         $qryEmploye=" SELECT count('user_id') AS jml_emp FROM user";
         $rsltEmploye= Yii::$app->db->createCommand($qryEmploye)->queryAll(); 	
-		
+        
+        $ranking =[
+            ['Rengking'=>'1','Station'=>'JkT SCTV','PM.Score'=>'1000','TT.Score'=>'100','Achievement'=>''],
+            ['Rengking'=>'2','Station'=>'Padang Indosiar','PM.Score'=>'900','TT.Score'=>'900','Achievement'=>''],
+            ['Rengking'=>'3','Station'=>'Cirebon SCTV','PM.Score'=>'899','TT.Score'=>'900','Achievement'=>'']
+        ];
+
         return [
             'box_tt'=>$rsltTT[0],
             'box_pm'=>$rsltPM[0],
             'station'=>$rsltStation[0]['ttl_station'],
-            't_employe'=>$rsltEmploye[0]['jml_emp']
+            't_employe'=>$rsltEmploye[0]['jml_emp'],
+            'ranking'=>$ranking
         ];
     }
 
@@ -118,13 +125,19 @@ class Box extends DynamicModel
 		// 	'pagination' => [
 		// 		'pageSize' => 12,
 		// 	],
-		// ]);		
+        // ]);		
+        $ranking =[
+            ['Rengking'=>'1','Station'=>'JkT SCTV','PM.Score'=>'1000','TT.Score'=>'100','Achievement'=>''],
+            ['Rengking'=>'2','Station'=>'Padang Indosiar','PM.Score'=>'900','TT.Score'=>'900','Achievement'=>''],
+            ['Rengking'=>'3','Station'=>'Cirebon SCTV','PM.Score'=>'899','TT.Score'=>'900','Achievement'=>'']
+        ];
 		
         return [
             'box_tt'=>$rsltTT[0],
             'box_pm'=>$rsltPM[0],
             'station'=>$rsltStation[0]['ttl_station'],
-            't_employe'=>$rsltEmploye[0]['jml_emp']
+            't_employe'=>$rsltEmploye[0]['jml_emp'],
+            'ranking'=>$ranking
         ];
     }
 
